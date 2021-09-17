@@ -4,5 +4,12 @@ declare namespace NodeJS {
     MONGO_PORT: string;
     MONGO_DB: string;
     PORT: string;
+    SECRET: string;
+  }
+}
+
+declare namespace Express {
+  export interface Request {
+    userId: string;
   }
 }
