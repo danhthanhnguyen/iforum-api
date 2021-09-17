@@ -11,8 +11,8 @@ app.use(express.json({ limit: "30mb" }));
 app.use(express.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
 
-app.use("account/", authRouter);
-app.use("/", questionRouter);
+app.use("/account/", authRouter);
+app.use("/question/", questionRouter);
 
 const URI: string = `mongodb://${process.env.MONGO_HOSTNAME}:${process.env.MONGO_PORT}/${process.env.MONGO_DB}`;
 mongoose

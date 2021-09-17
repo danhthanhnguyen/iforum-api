@@ -13,3 +13,22 @@ export const getQuestions = async (req: Request, res: Response) => {
     });
   }
 };
+
+export const createQuestions = async (req: Request | any, res: Response) => {
+  try {
+    const question: object = req.body;
+    const newQuestion = new questionModel({
+      ...question,
+      author: req.userId,
+      createdAt: new Date().toISOString(),
+    });
+    await newQuestion.save();
+    return res.json({
+      data: newQuestion,
+    });
+  } catch (error: any) {
+    return res.status(409).json({
+      message: error.message,
+    });
+  }
+};

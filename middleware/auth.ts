@@ -1,7 +1,11 @@
 import jwt, { JwtPayload, Secret } from "jsonwebtoken";
 import { NextFunction, Request, Response } from "express";
 
-const auth = async (req: Request, res: Response, next: NextFunction) => {
+export const auth = async (
+  req: Request | any,
+  res: Response,
+  next: NextFunction
+) => {
   const token = req.headers.authorization?.split(" ")[1]; // get token
   let decodedData: JwtPayload;
   if (!token) {
