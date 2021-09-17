@@ -3,7 +3,7 @@ import authModel from "../model/authModel";
 import bcrypt from "bcryptjs";
 import jwt, { Secret } from "jsonwebtoken";
 
-export const signin = async (req: Request, res: Response) => {
+export const login = async (req: Request, res: Response) => {
   try {
     const email: string = req.body.email;
     const password: string = req.body.password;
@@ -35,7 +35,7 @@ export const signin = async (req: Request, res: Response) => {
   }
 };
 
-export const signup = async (req: Request, res: Response) => {
+export const register = async (req: Request, res: Response) => {
   try {
     const email: string = req.body.email;
     const password: string = req.body.password;
